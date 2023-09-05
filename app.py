@@ -5,7 +5,7 @@ import numpy as np
 st.title("Sales Prediction")
 
 # Load the saved ANN model
-model = tf.keras.models.load_model("sales_prediction.h5")
+model = tf.keras.models.load_model("1.h5")
 
 # Define the input fields
 country = st.number_input("Enter the country code:", value=0)
