@@ -24,7 +24,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.title("Sales Prediction")
+with st.body():
+    st.title("Sales Prediction")
 
 # Load the saved ANN model
 model = tf.keras.models.load_model("1.h5")
