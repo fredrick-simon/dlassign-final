@@ -2,38 +2,35 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 
-st.title("Drowsiness detection")
-st.write("Predict whether a person is feeling drowsy or not")
+st.title("Sales Prediction")
 
-model = tf.keras.models.load_model("drowsiness.h5")
-labels = ['Closed', 'No yawn', 'Open', 'Yawn']
+# Load the saved ANN model
+model = tf.keras.models.load_model("sales_prediction.h5")
 
-# Define input fields for the three numerical inputs
-input1 = st.number_input("Enter value 1", value=0)
-input2 = st.number_input("Enter value 2", value=0)
-input3 = st.number_input("Enter value 3", value=0)
+# Define the input fields
+country = st.number_input("Enter the country code:", value=0)
+store = st.number_input("Enter the store code:", value=0)
+product = st.number_input("Enter the product code:", value=0)
 
 # Define a function to preprocess the input values and make a prediction
-def predict(input1, input2, input3):
+def predict_sales(country, store, product):
     # Preprocess the input values
-    inputs = np.array([input1, input2, input3]).reshape(1, -1)
+    inputs = np.array([country, store, product]).reshape(1, -1)
 
     # Make a prediction using the loaded model
     prediction = model.predict(inputs)
-    predicted_label_index = np.argmax(prediction)
-    label = labels[predicted_label_index]
 
-    return label
+    return prediction[0][0]
 
-# Call the predict function when the user clicks the "Predict" button
+# Call the predict_sales function when the user clicks the "Predict" button
 if st.button("Predict"):
-    label = predict(input1, input2, input3)
+    prediction = predict_sales(country, store, product)
     st.write("### Prediction Result")
-    st.write(f"The person is feeling {label}.")
+    st.write(f"The predicted sales for this product is {prediction:.2f}.")
 
-# Display a sample image and prediction if the user clicks the "Use Sample Image" button
-if st.button("Use Sample Image"):
-    input1, input2, input3 = 1, 2, 3  # Replace with your own sample inputs
-    label = predict(input1, input2, input3)
+# Display a sample prediction if the user clicks the "Use Sample Data" button
+if st.button("Use Sample Data"):
+    country, store, product = 0, 0, 0  # Replace with your own sample inputs
+    prediction = predict_sales(country, store, product)
     st.write("### Prediction Result")
-    st.write(f"The person is feeling {label}.")
+    st.write(f"The predicted sales for this product is {prediction:.2f}.")
