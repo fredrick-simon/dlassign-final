@@ -11,16 +11,19 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Set the theme for the app
-st.beta_set_theme(
-    bgColor="black",
-    textColor="orange",
+# Set the CSS styles for the app
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: black;
+        color: orange;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
 )
-
 st.title("Sales Prediction")
-
-st.title("Sales Prediction")
-
 
 # Load the saved ANN model
 model = tf.keras.models.load_model("1.h5")
