@@ -2,6 +2,10 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 
+import streamlit as st
+import tensorflow as tf
+import numpy as np
+
 # Configure the Streamlit app
 st.set_page_config(
     page_title="Sales Prediction",
@@ -10,18 +14,14 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Set the CSS styles for the app
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: black;
-        color: orange;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
+# Set the theme for the app
+st.beta_set_theme(
+    "dark",
+    bgColor="black",
+    textColor="orange",
 )
+
+st.title("Sales Prediction")
 
 st.title("Sales Prediction")
 
