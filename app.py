@@ -16,13 +16,14 @@ st.markdown(
     """
     <style>
     body {
-        background-color: black;
-        color: orange;
+        background-color: black !important;
+        color: orange !important;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 st.title("Sales Prediction")
 
 # Load the saved ANN model
