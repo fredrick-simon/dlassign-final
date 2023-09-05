@@ -13,7 +13,6 @@ st.set_page_config(
 
 # Set the theme for the app
 st.beta_set_theme(
-    "dark",
     bgColor="black",
     textColor="orange",
 )
