@@ -2,7 +2,6 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 
-
 # Configure the Streamlit app
 st.set_page_config(
     page_title="Sales Prediction",
@@ -16,14 +15,13 @@ st.markdown(
     """
     <style>
     body {
-        background-color: black !important;
-        color: orange !important;
+        background-color: black;
+        color: orange;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
-
 
 st.title("Sales Prediction")
 
