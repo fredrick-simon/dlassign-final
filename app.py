@@ -2,7 +2,29 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 
+# Configure the Streamlit app
+st.set_page_config(
+    page_title="Sales Prediction",
+    page_icon="📈",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
+
+# Set the CSS styles for the app
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: black;
+        color: orange;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.title("Sales Prediction")
+
 
 # Load the saved ANN model
 model = tf.keras.models.load_model("1.h5")
